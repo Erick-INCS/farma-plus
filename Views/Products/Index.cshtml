@@ -1,0 +1,77 @@
+@{
+    ViewData["Title"] = "Productos";
+}
+
+<div class="text-center">
+    <h3 class="display-4">Producto {name}</h3>
+
+    <form action="javascript: update()">
+        <div class="form-group row mt-5">
+            <label for="txtDesc" class="col-4 col-form-label">Descripcion</label>
+            <div class="col-8">
+                <textarea id="txtDesc" name="description" cols="40" rows="3" class="form-control"
+                aria-describedby="txtDescHelpBlock"></textarea>
+                <span id="txtDescHelpBlock" class="form-text text-muted">Descripcion del producto</span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="offset-4 col-8">
+                <button name="submit" type="submit" class="btn btn-outline-success">Actualizar valor</button>
+                <button name="submit" type="button" onclick="btnClick()" class="btn btn-outline-primary">Refrescar</button>
+            </div>
+        </div>
+    </form>
+
+
+
+@section Scripts {
+
+    <script>
+        $.ajax({
+        url: '/products/GetProducts',
+        type: 'GET',
+        success: function (result) {
+        console.log(result);
+        document.getElementById('txtDesc').innerText = result[0].description;
+        },
+        error: function (err) {
+        console.error(err);
+        }
+        });
+
+        function btnClick() {
+           $.ajax({
+        url: '/products/GetProducts',
+        type: 'GET',
+        success: function (result) {
+        alert('actualizado');
+        document.getElementById('txtDesc').innerText = result[0].description;
+        },
+        error: function (err) {
+        console.error(err);
+        }
+        }); 
+        }
+
+        function update() {
+            $.ajax({
+        url: '/products/updateDesc',
+        type: 'POST',
+        data: JSON.stringify({description: $('#txtDesc').val()}),
+        contentType: 'application/json',
+        success: function(res) {
+            //message
+            alert('Actualizado');
+            
+        },
+        error: function(err) {
+            //message
+            console.error('Error', err);
+        }
+    })
+        }
+    </script>
+}
+
+    @* <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p> *@
+</div>

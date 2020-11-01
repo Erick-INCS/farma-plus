@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.EntityFrameworkCore;
+using farma.Models;
 
 namespace farma
 {
@@ -24,6 +26,10 @@ namespace farma
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            //Db service config
+            string conString = "Data source=dbname.db";
+            services.AddDbContext<DataContext> (options => options.UseSqlite(conString));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
