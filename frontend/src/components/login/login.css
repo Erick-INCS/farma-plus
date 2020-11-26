@@ -1,0 +1,50 @@
+html{
+  box-sizing: border-box;
+}
+*, *:after, *:before{
+  box-sizing: inherit;
+}
+body{
+  background-image: url(bg.jpg);
+  background-size: cover;
+  font-family:  verdana;
+  text-transform: uppercase;
+}
+nav{
+  display: none;
+}
+div.hero{
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 70vh;
+  width: 60vh;
+  margin: 0 auto;
+  margin-top: 15vh;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  padding: 3rem;
+}
+.hero p{
+  color: rgba(255, 255, 255, 0.7);
+}
+a{
+  text-decoration: none;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 1px 1px white;
+  padding: 10px;
+}
+.hero h2{
+  border-style: double;
+  border-left: 0;
+  border-right: 0;
+  width: 70%;
+  margin: 0 auto;
+}
+
+input.transparent {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+}
