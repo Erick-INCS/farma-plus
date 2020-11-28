@@ -11,6 +11,7 @@ class Login extends Component {
     };
 
     render() {
+	if (validator.valid) document.location.pathname = '/';
         return (
             <React.Fragment>
                 <div className="hero">

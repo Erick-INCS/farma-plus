@@ -55,7 +55,15 @@ namespace farma.Controllers
             return Json(result);
         }
 
+	[HttpPost]
+        public IActionResult generic([FromBody] O obj) 
+        {
+	    obj.Prop = 10 + obj.Prop;
+            return Json(obj);
+        }
+    }
 
-
+    public class O {
+	public int Prop {get; set;}
     }
 }
