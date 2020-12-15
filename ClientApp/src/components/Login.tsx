@@ -5,7 +5,7 @@ class Login extends Component {
     render() { 
         return (
         <div className="card card-login mx-auto mt-5">
-          <div className="card-header bg-primary text-white">Login to your account</div>
+          <div className="card-header bg-primary text-white">Iniciar sesión</div>
           <div className="card-body">
             <form>
               <div className="form-group">
@@ -20,12 +20,12 @@ class Login extends Component {
                   <input type="password" id="inputPassword" className="form-control" placeholder="Password" required/>
                 </div>
               </div>
-              <a className="btn btn-primary btn-block" href="index.html">Login</a>
+              <a className="btn btn-primary btn-block" href="index.html">Iniciar sesión</a>
             </form>
           </div>
         </div>
       );
     }
 }
- 
+
 export default Login;
