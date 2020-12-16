@@ -3,7 +3,7 @@ import { Component } from 'react';
 import { connect } from 'react-redux';
 import Navigation from './Navigation';
 import PageFooter from './PageFooter';
-// import DataTable from './DataTable';
+import DataTable from './DataTable';
 
 class Home extends Component {
   state = {   }
@@ -92,7 +92,7 @@ class Home extends Component {
                       quantity:'03',
                       price:'$220',
                       date:'00/00/0000',
-                      total:'$220',
+                      total:'$221',
                     }]}></DataTable>
                   </div>
                 </div>
