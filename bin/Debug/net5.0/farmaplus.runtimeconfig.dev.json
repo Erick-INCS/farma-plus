@@ -1,8 +1,8 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-      "C:\\Users\\cheli\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\cheli\\.nuget\\packages"
+      "/home/incspn/.dotnet/store/|arch|/|tfm|",
+      "/home/incspn/.nuget/packages"
     ]
   }
 }
