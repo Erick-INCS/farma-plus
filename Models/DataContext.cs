@@ -10,6 +10,6 @@ namespace farmaplus.Models
             
         }
         
-        // public DbSet<Property> Properties {set; get;}
+        public DbSet<Productos> Productos {set; get;}
     }
 }

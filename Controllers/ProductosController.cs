@@ -6,28 +6,23 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using farmaplus.Models;
 
 namespace farmaplus.Controllers
 {
-    public class HomeController : Controller
+    public class ProductosController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
         private DataContext db;
 
-        public HomeController(ILogger<HomeController> logger, DataContext dbC)
+        public ProductosController(DataContext dbC)
         {
-            _logger = logger;
             db = dbC;
         }
 
-        public IActionResult Index()
-        {
-            return View(db.Productos.ToList());
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
+        [HttpGet]
+        public IActionResult GetProducts() {
+            // var data = db.Productos.ToList();
+            return Json(db.Productos.ToList());
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

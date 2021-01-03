@@ -19,3 +19,11 @@ nav.jc-none {
 main.container {
   margin-right: 0;
 }
+
+div.row.h100strict {
+  --bs-gutter-x: 0;
+}
+
+div.sub-body {
+  padding-left: 2rem;
+}

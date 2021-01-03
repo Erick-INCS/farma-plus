@@ -15,9 +15,6 @@
   
             <div class="row">
 
-            
-            
-  
             <div class="card mb-3 p-0 mx-1 col-4">
                 <div class="card-header bg-primary text-white">
                   <i class="fa fa-table"></i>
@@ -72,21 +69,10 @@
                 </div>
                 <div class="card-body">
                   <div class="table-responsive">
-                    <DataTable headers={{
-                      'id': '#',
-                      'name': 'Producto',
-                      'quantity': 'Cantidad',
-                      'price': 'Precio',
-                      'date': 'Fecha',
-                      'total': 'Total',
-                    }} data={[{
-                      id:'#456488',
-                      name:'Audionic MIC AM-20',
-                      quantity:'03',
-                      price:'$220',
-                      date:'00/00/0000',
-                      total:'$221',
-                    }]}></DataTable>
+                    @foreach(var e in Model)
+                    {
+                        <td>e.Descripcion</td>
+                    }
                   </div>
                 </div>
               </div>
