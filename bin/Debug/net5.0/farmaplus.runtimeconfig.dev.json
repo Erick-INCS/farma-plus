@@ -1,8 +1,0 @@
-{
-  "runtimeOptions": {
-    "additionalProbingPaths": [
-      "C:\\Users\\cheli\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\cheli\\.nuget\\packages"
-    ]
-  }
-}
