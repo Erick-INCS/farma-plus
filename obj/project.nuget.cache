@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "yWNLur2DhobKhqtJY0wd8u5vuO6WFrFWUJvMVMX1UsoWAYMRdlQ2bsJk2e9M4/1G1oj275UROrw6xjwuZSbJ7w==",
+  "dgSpecHash": "71AgBAIf0X0e/pDoG9wXTVTWncPyF99zPWflblbrtZ1RZKywV2acWkpTO4Y9AsSNhg/ddMeIMBJp5ollh8i8eg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\cheli\\source\\repos\\farmaplus\\farmaplus.csproj",
+  "projectFilePath": "C:\\Users\\cheli\\Documents\\GitHub\\farma-plus\\farmaplus.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\cheli\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\cheli\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\5.0.1\\microsoft.aspnetcore.cryptography.internal.5.0.1.nupkg.sha512",

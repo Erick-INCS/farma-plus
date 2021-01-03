@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\cheli\\source\\repos\\farmaplus\\farmaplus.csproj": {}
+    "C:\\Users\\cheli\\Documents\\GitHub\\farma-plus\\farmaplus.csproj": {}
   },
   "projects": {
-    "C:\\Users\\cheli\\source\\repos\\farmaplus\\farmaplus.csproj": {
+    "C:\\Users\\cheli\\Documents\\GitHub\\farma-plus\\farmaplus.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\cheli\\source\\repos\\farmaplus\\farmaplus.csproj",
+        "projectUniqueName": "C:\\Users\\cheli\\Documents\\GitHub\\farma-plus\\farmaplus.csproj",
         "projectName": "farmaplus",
-        "projectPath": "C:\\Users\\cheli\\source\\repos\\farmaplus\\farmaplus.csproj",
+        "projectPath": "C:\\Users\\cheli\\Documents\\GitHub\\farma-plus\\farmaplus.csproj",
         "packagesPath": "C:\\Users\\cheli\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\cheli\\source\\repos\\farmaplus\\obj\\",
+        "outputPath": "C:\\Users\\cheli\\Documents\\GitHub\\farma-plus\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\cheli\\AppData\\Roaming\\NuGet\\NuGet.Config",
