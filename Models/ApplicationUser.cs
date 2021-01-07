@@ -8,6 +8,5 @@ namespace farmaplus.Models
 {
     public class ApplicationUser : IdentityUser
     {
-
     }
 }
