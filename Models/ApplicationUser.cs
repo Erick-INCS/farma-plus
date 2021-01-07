@@ -1,13 +1,13 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace farmaplus.Models
 {
-    public class UsrType
+    public class ApplicationUser : IdentityUser
     {
-        public int Id { get; set; }
-        public string Descripcion { get; set; }
+
     }
 }

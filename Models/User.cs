@@ -14,9 +14,7 @@ namespace farmaplus.Models
         public string ApellidoM { get; set; }
         public string Email { get; set; }
         public string Pass { get; set; }    
-        public int? Id_Typeusr { get; set; }
-        [ForeignKey("Id_Typeusr")]
-        public UsrType UsrType { get; set; }
+        
 
 
 

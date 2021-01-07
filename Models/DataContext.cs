@@ -1,4 +1,5 @@
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using farmaplus.Models;
 // using ...Models
 
 namespace farmaplus.Models
@@ -7,9 +8,13 @@ namespace farmaplus.Models
     {
         public DataContext(DbContextOptions<DataContext> options) : base(options)
         {
-            
+
         }
-        
-        public DbSet<Productos> Productos {set; get;}
+
+        public DbSet<Productos> Productos { set; get; }
+
+        public DbSet<farmaplus.Models.Role> Role { get; set; }
+        public DbSet<ApplicationUser> ApplicationUsers {get; set;}
+        public DbSet<farmaplus.Models.Clientes> Clientes { get; set; }
     }
 }
