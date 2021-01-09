@@ -6,27 +6,25 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using farmaplus.Models;
-using Microsoft.AspNetCore.Authorization;
 
 namespace farmaplus.Controllers
 {
-    [Authorize(Roles = "Webmaster")]
-    public class ProductosController : Controller
+    public class UsersController : Controller
     {
         private readonly DataContext _context;
 
-        public ProductosController(DataContext context)
+        public UsersController(DataContext context)
         {
             _context = context;
         }
 
-        // GET: Productos
+        // GET: Users
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Productos.ToListAsync());
+            return View(await _context.User.ToListAsync());
         }
 
-        // GET: Productos/Details/5
+        // GET: Users/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -34,39 +32,39 @@ namespace farmaplus.Controllers
                 return NotFound();
             }
 
-            var productos = await _context.Productos
+            var user = await _context.User
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (productos == null)
+            if (user == null)
             {
                 return NotFound();
             }
 
-            return View(productos);
+            return View(user);
         }
 
-        // GET: Productos/Create
+        // GET: Users/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Productos/Create
+        // POST: Users/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Descripcion,Caducidad,Precio,Lote")] Productos productos)
+        public async Task<IActionResult> Create([Bind("Id,Nombre,ApellidoP,ApellidoM,Email,Pass")] User user)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(productos);
+                _context.Add(user);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(productos);
+            return View(user);
         }
 
-        // GET: Productos/Edit/5
+        // GET: Users/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -74,22 +72,22 @@ namespace farmaplus.Controllers
                 return NotFound();
             }
 
-            var productos = await _context.Productos.FindAsync(id);
-            if (productos == null)
+            var user = await _context.User.FindAsync(id);
+            if (user == null)
             {
                 return NotFound();
             }
-            return View(productos);
+            return View(user);
         }
 
-        // POST: Productos/Edit/5
+        // POST: Users/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Descripcion,Caducidad,Precio,Lote")] Productos productos)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nombre,ApellidoP,ApellidoM,Email,Pass")] User user)
         {
-            if (id != productos.Id)
+            if (id != user.Id)
             {
                 return NotFound();
             }
@@ -98,12 +96,12 @@ namespace farmaplus.Controllers
             {
                 try
                 {
-                    _context.Update(productos);
+                    _context.Update(user);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ProductosExists(productos.Id))
+                    if (!UserExists(user.Id))
                     {
                         return NotFound();
                     }
@@ -114,10 +112,10 @@ namespace farmaplus.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(productos);
+            return View(user);
         }
 
-        // GET: Productos/Delete/5
+        // GET: Users/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -125,30 +123,30 @@ namespace farmaplus.Controllers
                 return NotFound();
             }
 
-            var productos = await _context.Productos
+            var user = await _context.User
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (productos == null)
+            if (user == null)
             {
                 return NotFound();
             }
 
-            return View(productos);
+            return View(user);
         }
 
-        // POST: Productos/Delete/5
+        // POST: Users/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var productos = await _context.Productos.FindAsync(id);
-            _context.Productos.Remove(productos);
+            var user = await _context.User.FindAsync(id);
+            _context.User.Remove(user);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ProductosExists(int id)
+        private bool UserExists(int id)
         {
-            return _context.Productos.Any(e => e.Id == id);
+            return _context.User.Any(e => e.Id == id);
         }
     }
 }
