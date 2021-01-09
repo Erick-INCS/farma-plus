@@ -3,84 +3,98 @@
 }
 
 <div id="wrapper">
-  
-        <div id="content-wrapper">
-          <div class="container-fluid">
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item">
-                <a href="index.html">Inicio</a>
-              </li>
-              <li class="breadcrumb-item active">Vender</li>
-            </ol>
-  
-            <div class="row">
+  <div id="content-wrapper">
+    <div class="container-fluid">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="index.html">Inicio</a>
+        </li>
+        <li class="breadcrumb-item active">Vender</li>
+      </ol>
 
-            <div class="card mb-3 p-0 mx-1 col-4">
-                <div class="card-header bg-primary text-white">
-                  <i class="fa fa-table"></i>
-                  Cargar producto
-                </div>
-                <div class="card-body">
-                  <div class="table-responsive">
-                  <form>
-                    <div>
-                      <div class="form-group">
-                        <label class="form-label" >Selecciona un producto</label>
-                        <select class="form-control text-primary" required>
-                          <option disabled selected>Por favor selecciona un producto</option>
-                          <option disabled>Speakers &amp; MICs</option>
-                          <option>Audionic MIC AM-20</option>
-                          <option>USB Sound Card</option>
-                          <option>Audionic Headphones AHT-11</option>
-                          <option disabled>Accesorios</option>
-                          <option>Razer Mousepad</option>
-                          <option>Blue Mousepad</option>
-                          <option>Apple Mouse Wireless A11</option>
-                          <option>DELL Mouse Wireless D232</option>
-                        </select>
-                      </div>
-                      <div class="form-group">
-                        <label>Cantidad</label>
-                        <input class="form-control" type="number" value="0" />
-                      </div>
-                      <div class="form-group">
-                        <label>Precio</label>
-                        <h5>$00</h5>
-                      </div>
-                      <div class="form-group">
-                        <label>Descripcion </label>
-                        <h5>$00</h5>
-                      </div>
-                    </div>
-                    <div class="modal-footer">
-                      <button class="btn btn-secondary" type="button">Cancelar</button>
-                      <input type="submit" class="btn btn-primary" value="Procesar"/>
-                    </div>
-                  </form>
-                  </div>
-                </div>
-              </div>
-  
-  
-              <div class="card mb-3 p-0 mx-1 col-7">
-                <div class="card-header bg-primary text-white">
-                  <i class="fa fa-table"></i>
-                  Venta
-                </div>
-                <div class="card-body">
-                  <div class="table-responsive">
+      <div class="row">
+
+      <div class="card mb-3 p-0 mx-1 col-4">
+          <div class="card-header bg-primary text-white">
+            <i class="fa fa-table"></i>
+            Cargar producto
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+            <form>
+              <div>
+                <div class="form-group">
+                  <label class="form-label" >Selecciona un producto</label>
+                  <select class="form-control text-primary" required>
+                    <option disabled selected>Por favor selecciona un producto</option>
                     @foreach(var e in Model)
                     {
-                        <td>e.Descripcion</td>
+                      <option value="@e.Id">@e.Descripcion</option>
                     }
-                  </div>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Cantidad</label>
+                  <input class="form-control" type="number" value="1" min="1"/>
+                </div>
+                <div class="form-group">
+                  <label>Precio</label>
+                  <h5>$00</h5>
+                </div>
+                <div class="form-group">
+                  <label>Descripcion </label>
+                  <h5>$00</h5>
                 </div>
               </div>
-  
+              <div class="modal-footer flex flex-row">
+                <button class="btn btn-secondary" id="btn-cancelar" type="button">Cancelar</button>
+                <input type="submit" class="btn btn-primary" id="btn-agregar" value="Agregar"/>
+              </div>
+            </form>
             </div>
           </div>
-  
-          <PageFooter></PageFooter>
-          
         </div>
+
+        <div class="card mb-3 p-0 mx-1 col-7">
+          <div class="card-header bg-primary text-white">
+            <i class="fa fa-table"></i>
+            Venta
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th> Producto </th>
+                    <th> Cantidad </th>
+                    <th> Importe </th>
+                  </tr>
+                </thead>
+                <tfoot>
+                    <th> Producto </th>
+                    <th> Cantidad </th>
+                    <th> Importe </th>
+                </tfoot>
+                <tbody>
+                </tbody>
+              </table> 
+            </div>
+            <input type="button" class="btn btn-primary" id="btn-procesar" value="Procesar"/>
+          </div>
+        </div>
+
       </div>
+    </div>
+  </div>
+</div>
+
+@section Scripts {
+  <script src="/js/index.js"></script>
+}
+
+<div class="d-none" id="products">
+@foreach(var e in Model)
+  {
+    <option data-id="@e.Id" data-desc="@e.Descripcion" data-stock="@e.Lote" data-price="@e.Precio"></option>
+  }
+</div>
