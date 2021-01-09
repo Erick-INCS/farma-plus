@@ -25,5 +25,7 @@ namespace farmaplus.Models
         public DbSet<farmaplus.Models.Role> Role { get; set; }
         public DbSet<ApplicationUser> ApplicationUsers {get; set;}
         public DbSet<farmaplus.Models.Clientes> Clientes { get; set; }
+        public DbSet<farmaplus.Models.User> User { get; set; }
+        public DbSet<farmaplus.Models.Detalle_Factura> Detalle_Factura { get; set; }
     }
 }

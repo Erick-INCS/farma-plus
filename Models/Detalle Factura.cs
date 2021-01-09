@@ -8,7 +8,7 @@ namespace farmaplus.Models
 {
     public class Detalle_Factura
     {
-
+        public int Id { get; set; }
         public int? Id_factura { get; set; }
         [ForeignKey("Id_factura")]
         public Factura Factura { get; set; }
