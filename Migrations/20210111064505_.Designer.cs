@@ -9,8 +9,8 @@ using farmaplus.Models;
 namespace farmaplus.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20210111012611_mig")]
-    partial class mig
+    [Migration("20210111064505_?")]
+    partial class _
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -295,6 +295,23 @@ namespace farmaplus.Migrations
                     b.ToTable("Factura");
                 });
 
+            modelBuilder.Entity("farmaplus.Models.HistorialVentas", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("Fecha")
+                        .HasColumnType("TEXT");
+
+                    b.Property<float>("Total")
+                        .HasColumnType("REAL");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("HistorialVentas");
+                });
+
             modelBuilder.Entity("farmaplus.Models.Productos", b =>
                 {
                     b.Property<int>("Id")
@@ -316,6 +333,30 @@ namespace farmaplus.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Productos");
+                });
+
+            modelBuilder.Entity("farmaplus.Models.ProductosVentas", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("Id_HistorialVentas")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("Id_Producto")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<float>("Total")
+                        .HasColumnType("REAL");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Id_HistorialVentas");
+
+                    b.HasIndex("Id_Producto");
+
+                    b.ToTable("ProductosVentas");
                 });
 
             modelBuilder.Entity("farmaplus.Models.Role", b =>
@@ -431,6 +472,21 @@ namespace farmaplus.Migrations
                         .HasForeignKey("Id_Cliente");
 
                     b.Navigation("Clientes");
+                });
+
+            modelBuilder.Entity("farmaplus.Models.ProductosVentas", b =>
+                {
+                    b.HasOne("farmaplus.Models.HistorialVentas", "HistorialVentas")
+                        .WithMany()
+                        .HasForeignKey("Id_HistorialVentas");
+
+                    b.HasOne("farmaplus.Models.Productos", "Productos")
+                        .WithMany()
+                        .HasForeignKey("Id_Producto");
+
+                    b.Navigation("HistorialVentas");
+
+                    b.Navigation("Productos");
                 });
 #pragma warning restore 612, 618
         }
