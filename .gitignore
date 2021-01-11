@@ -236,3 +236,4 @@ Pvt_Extensions
 # Custom
 bin/
 obj/*
+bin/Debug/net5.0/farmaplus.dll

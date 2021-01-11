@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using farmaplus.Models;
 using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 
 namespace farmaplus.Controllers
 {
@@ -23,6 +26,11 @@ namespace farmaplus.Controllers
         // GET: Productos
         public async Task<IActionResult> Index()
         {
+            ClaimsPrincipal currentUser = this.User;
+            var currentUserID = currentUser.FindFirst(ClaimTypes.NameIdentifier).Value;
+            Console.WriteLine(currentUserID);
+            ViewBag.admin = currentUserID == "9f6face8-db50-418d-a219-d4ba72ea5e1f";
+            
             return View(await _context.Productos.ToListAsync());
         }
 
@@ -41,6 +49,11 @@ namespace farmaplus.Controllers
                 return NotFound();
             }
 
+            ClaimsPrincipal currentUser = this.User;
+            var currentUserID = currentUser.FindFirst(ClaimTypes.NameIdentifier).Value;
+            Console.WriteLine(currentUserID);
+            ViewBag.admin = currentUserID == "9f6face8-db50-418d-a219-d4ba72ea5e1f";
+            
             return View(productos);
         }
 
@@ -63,6 +76,11 @@ namespace farmaplus.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ClaimsPrincipal currentUser = this.User;
+            var currentUserID = currentUser.FindFirst(ClaimTypes.NameIdentifier).Value;
+            Console.WriteLine(currentUserID);
+            ViewBag.admin = currentUserID == "9f6face8-db50-418d-a219-d4ba72ea5e1f";
+            
             return View(productos);
         }
 
@@ -79,6 +97,11 @@ namespace farmaplus.Controllers
             {
                 return NotFound();
             }
+            ClaimsPrincipal currentUser = this.User;
+            var currentUserID = currentUser.FindFirst(ClaimTypes.NameIdentifier).Value;
+            Console.WriteLine(currentUserID);
+            ViewBag.admin = currentUserID == "9f6face8-db50-418d-a219-d4ba72ea5e1f";
+            
             return View(productos);
         }
 
@@ -114,6 +137,11 @@ namespace farmaplus.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ClaimsPrincipal currentUser = this.User;
+            var currentUserID = currentUser.FindFirst(ClaimTypes.NameIdentifier).Value;
+            Console.WriteLine(currentUserID);
+            ViewBag.admin = currentUserID == "9f6face8-db50-418d-a219-d4ba72ea5e1f";
+            
             return View(productos);
         }
 
@@ -132,6 +160,11 @@ namespace farmaplus.Controllers
                 return NotFound();
             }
 
+ClaimsPrincipal currentUser = this.User;
+            var currentUserID = currentUser.FindFirst(ClaimTypes.NameIdentifier).Value;
+            Console.WriteLine(currentUserID);
+            ViewBag.admin = currentUserID == "9f6face8-db50-418d-a219-d4ba72ea5e1f";
+            
             return View(productos);
         }
 

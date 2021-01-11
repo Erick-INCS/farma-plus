@@ -7,6 +7,10 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Reflection;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 
 namespace farmaplus.Controllers
 {
@@ -24,8 +28,20 @@ namespace farmaplus.Controllers
 
         public IActionResult Index()
         {
+            // Type type = db.GetType();
+            // PropertyInfo[] props = type.GetProperties();
+            // string str = "{";
+            // foreach (var prop in props)
+            // {
+            //     str+= prop.Name+ ",";
+            // }
+            // Console.WriteLine(str);
+
+            ClaimsPrincipal currentUser = this.User;
+            var currentUserID = currentUser.FindFirst(ClaimTypes.NameIdentifier).Value;
+            Console.WriteLine(currentUserID);
+            ViewBag.admin = currentUserID == "9f6face8-db50-418d-a219-d4ba72ea5e1f";
             return View(db.Productos.ToList());
-            // Console.WriteLine(User.Roles());
             
         }
 
