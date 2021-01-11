@@ -57,4 +57,20 @@ window.onload = function() {
         u.lblCurrentPrice.innerText = 0.00;
         u.lblTotal.innerText = 'Total $' + u.cart.reduce((p, e)=>p + parseFloat(e.total), 0);
     };
+
+    u.btnSubmit.onclick = function () {
+        let data = {
+            fecha: new Date(),
+            total: u.cart.reduce((p, e)=>p + parseFloat(e.total), 0),
+            productos: u.cart.map(e => [{idProducto: e.id, cantidad: parseFloat(e.quantity), importe: parseFloat(e.total)}][0]) 
+        };
+
+        fetch('/HistorialVentas/New', {method:'POST', body: JSON.stringify(data), headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          }})
+	    .then(res => res.json()).then(res => {
+		    console.log(res);
+	    });
+    }
 };

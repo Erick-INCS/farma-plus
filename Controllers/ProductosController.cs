@@ -13,7 +13,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace farmaplus.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    // [Authorize(Roles = "Admin")]
     public class ProductosController : Controller
     {
         private readonly DataContext _context;
@@ -28,7 +28,6 @@ namespace farmaplus.Controllers
         {
             ClaimsPrincipal currentUser = this.User;
             var currentUserID = currentUser.FindFirst(ClaimTypes.NameIdentifier).Value;
-            Console.WriteLine(currentUserID);
             ViewBag.admin = currentUserID == "9f6face8-db50-418d-a219-d4ba72ea5e1f";
             
             return View(await _context.Productos.ToListAsync());
@@ -51,7 +50,6 @@ namespace farmaplus.Controllers
 
             ClaimsPrincipal currentUser = this.User;
             var currentUserID = currentUser.FindFirst(ClaimTypes.NameIdentifier).Value;
-            Console.WriteLine(currentUserID);
             ViewBag.admin = currentUserID == "9f6face8-db50-418d-a219-d4ba72ea5e1f";
             
             return View(productos);
@@ -60,6 +58,10 @@ namespace farmaplus.Controllers
         // GET: Productos/Create
         public IActionResult Create()
         {
+            ClaimsPrincipal currentUser = this.User;
+            var currentUserID = currentUser.FindFirst(ClaimTypes.NameIdentifier).Value;
+            ViewBag.admin = currentUserID == "9f6face8-db50-418d-a219-d4ba72ea5e1f";
+            
             return View();
         }
 
@@ -78,7 +80,6 @@ namespace farmaplus.Controllers
             }
             ClaimsPrincipal currentUser = this.User;
             var currentUserID = currentUser.FindFirst(ClaimTypes.NameIdentifier).Value;
-            Console.WriteLine(currentUserID);
             ViewBag.admin = currentUserID == "9f6face8-db50-418d-a219-d4ba72ea5e1f";
             
             return View(productos);
@@ -99,7 +100,6 @@ namespace farmaplus.Controllers
             }
             ClaimsPrincipal currentUser = this.User;
             var currentUserID = currentUser.FindFirst(ClaimTypes.NameIdentifier).Value;
-            Console.WriteLine(currentUserID);
             ViewBag.admin = currentUserID == "9f6face8-db50-418d-a219-d4ba72ea5e1f";
             
             return View(productos);
@@ -139,7 +139,6 @@ namespace farmaplus.Controllers
             }
             ClaimsPrincipal currentUser = this.User;
             var currentUserID = currentUser.FindFirst(ClaimTypes.NameIdentifier).Value;
-            Console.WriteLine(currentUserID);
             ViewBag.admin = currentUserID == "9f6face8-db50-418d-a219-d4ba72ea5e1f";
             
             return View(productos);
@@ -162,7 +161,6 @@ namespace farmaplus.Controllers
 
 ClaimsPrincipal currentUser = this.User;
             var currentUserID = currentUser.FindFirst(ClaimTypes.NameIdentifier).Value;
-            Console.WriteLine(currentUserID);
             ViewBag.admin = currentUserID == "9f6face8-db50-418d-a219-d4ba72ea5e1f";
             
             return View(productos);

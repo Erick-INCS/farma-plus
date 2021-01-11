@@ -6,6 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using farmaplus.Models;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 
 namespace farmaplus.Controllers
 {
@@ -21,6 +24,10 @@ namespace farmaplus.Controllers
         // GET: HistorialVentas
         public async Task<IActionResult> Index()
         {
+            ClaimsPrincipal currentUser = this.User;
+            var currentUserID = currentUser.FindFirst(ClaimTypes.NameIdentifier).Value;
+            ViewBag.admin = currentUserID == "9f6face8-db50-418d-a219-d4ba72ea5e1f";
+            
             return View(await _context.HistorialVentas.ToListAsync());
         }
 
@@ -62,6 +69,21 @@ namespace farmaplus.Controllers
                 return RedirectToAction(nameof(Index));
             }
             return View(historialVentas);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> New([FromBody] ClientVenta v)
+        {
+            if (ModelState.IsValid)
+            {
+                var hv = new HistorialVentas();
+                hv.Fecha = v.Fecha;
+                hv.Total = v.Total;
+                _context.Add(hv);
+                await _context.SaveChangesAsync();
+                // return RedirectToAction(nameof(Index));
+            }
+            return Json(1);
         }
 
         // GET: HistorialVentas/Edit/5

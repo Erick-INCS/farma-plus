@@ -39,7 +39,6 @@ namespace farmaplus.Controllers
 
             ClaimsPrincipal currentUser = this.User;
             var currentUserID = currentUser.FindFirst(ClaimTypes.NameIdentifier).Value;
-            Console.WriteLine(currentUserID);
             ViewBag.admin = currentUserID == "9f6face8-db50-418d-a219-d4ba72ea5e1f";
             return View(db.Productos.ToList());
             
