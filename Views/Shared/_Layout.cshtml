@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - farmaplus</title>
+    <title>@ViewData["Title"] - Farmaplus</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link rel="stylesheet" href="~/css/theme.css" />
     <link rel="stylesheet" href="~/css/site.css" />
@@ -12,19 +12,24 @@
 <body>
 
     <div class="row h100strict">
-      <div class="col-3 l-nav">
+      <div class="col-lg-2 col-3 l-nav">
         <nav class="navbar navbar-light bg-light flex-column h100strict jc-none">
           <a class="navbar-brand mt-3" href="/">Farma Plus</a>
           <nav class="nav nav-pills flex-column mt-3">
             <a class="nav-link" href="/">Inicio</a>
-            <a class="nav-link" href="/Porductos">Catalogo</a>
-            <a class="nav-link" href="/Clientes">Clientes</a>
-            <a class="nav-link" href="/">Usuarios</a>
+            <a class="nav-link" href="/Productos">Catalogo</a>
+            <a class="nav-link" href="/Users">Usuarios</a>
+            <!-- <a class="nav-link" href="/Clientes">Clientes</a> -->
           </nav>
+          <div class="mt-5 align-bottom">
+            Usuario: <br>
+            @User.Identity.Name
+            <!-- @User.IsInRole("Administrator") -->
+          </div>
         </nav>
       </div>
 
-      <div class="col-9 offset-3 sub-body">
+      <div class="col-lg-10 col-9 offset-3 offset-lg-2 sub-body">
           <main role="main" class="pb-3 mt-5 container">
               @RenderBody()
           </main>
