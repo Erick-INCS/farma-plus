@@ -37,6 +37,9 @@ namespace farmaplus.Controllers
                 var result = await roleManager.CreateAsync(new IdentityRole(role.RoleName));
             }
             return View();
+
         }
+
     }
+
 }

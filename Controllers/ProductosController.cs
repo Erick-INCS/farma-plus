@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace farmaplus.Controllers
 {
-   // [Authorize(Roles = "Webmaster")]
+    [Authorize(Roles = "Admin")]
     public class ProductosController : Controller
     {
         private readonly DataContext _context;
