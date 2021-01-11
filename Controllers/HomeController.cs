@@ -25,6 +25,8 @@ namespace farmaplus.Controllers
         public IActionResult Index()
         {
             return View(db.Productos.ToList());
+            // Console.WriteLine(User.Roles());
+            
         }
 
         public IActionResult Privacy()

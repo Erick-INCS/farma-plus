@@ -50,7 +50,7 @@ window.onload = function() {
         } else {
             u.cart.push({id: u.selected.id, desc: u.selected.desc, price: u.selected.price, quantity: u.selected.quantity, total: u.selected.cost});
         }
-        u.productsTB.innerHTML = u.cart.map(e => `<td>${e.desc}</td><td>$${e.price}</td><td>${e.quantity}</td><td>$${e.total}</td>`);
+        u.productsTB.innerHTML = u.cart.map(e => `<tr><td>${e.desc}</td><td>$${e.price}</td><td>${e.quantity}</td><td>$${e.total}</td></tr>`).join('');
 
         u.quantityInput.value = 1;
         u.elemSelector.selectedIndex = 0;
