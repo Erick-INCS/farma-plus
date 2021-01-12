@@ -63,6 +63,10 @@ window.onload = function() {
             fecha: new Date(),
             total: u.cart.reduce((p, e)=>p + parseFloat(e.total), 0),
             productos: u.cart.map(e => [{idProducto: e.id, cantidad: parseFloat(e.quantity), importe: parseFloat(e.total)}][0]) 
+        }, comprobante = {
+            fecha: new Date(),
+            total: u.cart.reduce((p, e)=>p + parseFloat(e.total), 0),
+            productos: u.cart, 
         };
 
         fetch('/HistorialVentas/New', {method:'POST', body: JSON.stringify(data), headers: {
@@ -70,7 +74,14 @@ window.onload = function() {
             'Content-Type': 'application/json'
           }})
 	    .then(res => res.json()).then(res => {
-		    console.log(res);
+            
+            u.productsTB.innerHTML = '';
+            u.lblTotal.innerText = 'Total $0.00';
+
+            let a = document.createElement('a');
+            a.target = "_blank";
+            a.href = `/HistorialVentas/Comprobante?data=${JSON.stringify(comprobante)}`;
+            a.click();
 	    });
     }
 };

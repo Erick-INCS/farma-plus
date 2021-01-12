@@ -1,0 +1,46 @@
+﻿@model IEnumerable<farmaplus.Models.HistorialVentas>
+
+@{
+    ViewData["Title"] = "Comprobante";
+    Layout = "/Views/Shared/_Layout2.cshtml";
+}
+<span class="d-none">@ViewBag.DataS</span>
+<div>
+    <dl class="row">
+        <dt class = "col-sm-2">
+        Fecha
+        </dt>
+        <dd class = "col-sm-10">
+        <span id="fecha"></span>
+        </dd>
+        <dt class = "col-sm-2">
+        Monto
+        </dt>
+        <dd class = "col-sm-10">
+        <span id="total"></span>
+        </dd>
+    </dl>
+</div>
+
+<table class="table table-bordered">
+<thead>
+    <tr>
+    <th> Producto </th>
+    <th> Precio </th>
+    <th> Cantidad </th>
+    <th> Importe </th>
+    </tr>
+</thead>
+<tfoot>
+    <th> Producto </th>
+    <th> Precio </th>
+    <th> Cantidad </th>
+    <th> Importe </th>
+</tfoot>
+<tbody id="products-tb"></tbody>
+</table> 
+
+
+@section Scripts {
+    <script src="/js/comprobante.js"></script>
+}

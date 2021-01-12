@@ -9,6 +9,8 @@ using farmaplus.Models;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace farmaplus.Controllers
 {
@@ -26,9 +28,17 @@ namespace farmaplus.Controllers
         {
             ClaimsPrincipal currentUser = this.User;
             var currentUserID = currentUser.FindFirst(ClaimTypes.NameIdentifier).Value;
-            ViewBag.admin = currentUserID == "9f6face8-db50-418d-a219-d4ba72ea5e1f";
+            ViewBag.admin = currentUserID == "257c4d5f-f2e3-4563-9da2-d379d5953eaa";
             
             return View(await _context.HistorialVentas.ToListAsync());
+        }
+
+        public IActionResult Comprobante(String data)
+        {
+            var d = JsonSerializer.Deserialize<ClientVenta>(data);
+            ViewBag.Data = d;
+            ViewBag.DataS = data;
+            return View();
         }
 
         // GET: HistorialVentas/Details/5

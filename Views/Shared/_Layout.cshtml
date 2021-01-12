@@ -18,10 +18,13 @@
           <nav class="nav nav-pills flex-column mt-3">
             @if (User.Identity.IsAuthenticated) {
               <a class="nav-link" href="/">Inicio</a>
-              @if (ViewBag.admin) {
-                <a class="nav-link" href="/Users">Usuarios</a>
+              @if (ViewBag.admin != null) {
+                @if (ViewBag.admin) {
+                <a class="nav-link" href="/Productos">Catalogo</a>
+                <a class="nav-link" href="/Identity/Account/Register">Nuevo Usuario</a>
+                }
               }
-              <a class="nav-link" href="/Productos">Catalogo</a>
+              <a class="nav-link" href="/HistorialVentas">Ventas</a>
               <!-- /Identity/Account/Register?returnUrl=%2F -->
               <!-- <a class="nav-link" href="/Clientes">Clientes</a> -->
               <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
