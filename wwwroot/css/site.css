@@ -27,3 +27,14 @@ div.row.h100strict {
 div.sub-body {
   padding-left: 2rem;
 }
+
+div.container-fluid {
+  padding: 10px;
+}
+
+.bootstrap-select>.dropdown-toggle.bs-placeholder, .bootstrap-select>.dropdown-toggle.bs-placeholder {
+  border: 1px solid #ced4da;
+}
+.bootstrap-select>.dropdown-toggle {
+  border: 1px solid #ced4da;
+}
